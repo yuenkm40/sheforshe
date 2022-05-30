@@ -1,0 +1,25 @@
+.login{
+    background-color:rgb(247, 197, 205);
+    height:calc(100vh - 60px);
+    display:flex;
+    flex-direction:row;
+    .left{
+        display:flex;
+        flex:0.4;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        h1{
+            width:60%;
+            color:white;
+        }
+        img{
+            height:70%;
+        }
+    }
+    .right{
+        display:flex;
+        flex:0.6;
+        background-color:white;
+    }
+}

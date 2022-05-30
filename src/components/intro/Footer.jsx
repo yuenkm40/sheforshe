@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
       </div>
       <div className="footer-copyright">
-          <p>@ 2021 SheforShe. All rights reserved.</p>
+          <p>@ 2022 SheforShe. All rights reserved.</p>
       </div>
     </div>
   )

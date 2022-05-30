@@ -34,7 +34,9 @@ export default function Navbar() {
         </div>
         <div className="right">
             <div className="button">
+            <NavLink to="/login">
                 Login
+            </NavLink>
             </div>
         </div>
         </div>
