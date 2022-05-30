@@ -1,8 +1,25 @@
-import React from 'react'
+import React, {useState, useEffect}from 'react'
 import './navbar.scss'
-import {NavLink} from 'react-router-dom';
+import {NavLink, useLocation} from 'react-router-dom';
+import {useDispatch} from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  console.log(user);
+  const logout= () => {
+    dispatch({type:'LOGOUT'});
+    navigate('/');
+    setUser(null);
+  }
+  // useEffect(() => {
+  //   const token = user?.token;
+  //   //JWT
+  //   setUser(JSON.parse(localStorage.getItem('profile')));
+  // },[user, location]);
   return (
     <div className="navbar" id="navbar">
       <div className="wrapper">
@@ -33,11 +50,12 @@ export default function Navbar() {
             </div>
         </div>
         <div className="right">
-            <div className="button">
+        {user?.result? (<div className="button" onClick={logout}>Log Out</div>) : (<div className="button">
             <NavLink to="/login">
                 Login
             </NavLink>
-            </div>
+            </div>)}
+            
         </div>
         </div>
     </div>
