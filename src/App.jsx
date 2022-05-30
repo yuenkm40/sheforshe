@@ -20,9 +20,10 @@ const routes = (
       <div className="sections">
         <Intro/>
         <About/>
+        <Footer/>
     </div>
     } exact/>
-    <Route path="/parners" element={<Intro/>} exact/>
+    <Route path="/partners" element={<Intro/>} exact/>
     <Route path="/events" element={<Events/>} exact/>
     <Route path="/profile" element={<Intro/>} exact/>
     <Route
@@ -39,13 +40,13 @@ function App() {
       {/* NavLinks must be within Router */}
     <Router>
     <Navbar/>
-    <div className="sections">
+      <main>{routes}</main>
+    </Router>
+    {/* <div className="sections">
       <Intro/>
       <About/>
       <Footer/>
-    </div>
-      <main>{routes}</main>
-    </Router>
+    </div> */}
     </div>
   );
 }
