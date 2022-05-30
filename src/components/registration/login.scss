@@ -5,21 +5,23 @@
     flex-direction:row;
     .left{
         display:flex;
-        flex:0.4;
+        flex:0.5;
         align-items:center;
         justify-content:center;
         flex-direction:column;
         h1{
-            width:60%;
+            width:50%;
             color:white;
+            text-align:center;
+            margin-top:40px;
         }
         img{
-            height:70%;
+            height:75%;
         }
     }
     .right{
         display:flex;
-        flex:0.6;
-        background-color:white;
+        flex:0.5;
+        background-color:rgb(247, 197, 205);
     }
 }
