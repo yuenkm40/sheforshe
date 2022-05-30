@@ -10,10 +10,26 @@ export default function Navbar() {
             <h1>SheforShe</h1>
    
             <div className="menu">
-                <div className="menuItem">Home</div>
-                <div className="menuItem">Partners</div>
-                <div className="menuItem">Events</div>
-                <div className="menuItem">Profile</div>
+                <div className="menuItem">
+                  <NavLink to="/">
+                    Home
+                  </NavLink>
+                </div>
+                <div className="menuItem">
+                  <NavLink to="/partners">
+                    Partners
+                  </NavLink>
+                </div>
+                <div className="menuItem">
+                  <NavLink to="/events">
+                    Events
+                  </NavLink>
+                </div>
+                <div className="menuItem">
+                  <NavLink to="/profile">
+                    Profile
+                  </NavLink>
+                </div>
             </div>
         </div>
         <div className="right">
