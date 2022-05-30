@@ -9,23 +9,23 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(user);
+  // console.log(user);
   const logout= () => {
     dispatch({type:'LOGOUT'});
     navigate('/');
     setUser(null);
   }
-  // useEffect(() => {
-  //   const token = user?.token;
-  //   //JWT
-  //   setUser(JSON.parse(localStorage.getItem('profile')));
-  // },[user, location]);
+  useEffect(() => {
+    const token = user?.token;
+    //JWT
+    setUser(JSON.parse(localStorage.getItem('profile')));
+  },[user, location]);
   return (
     <div className="navbar" id="navbar">
       <div className="wrapper">
         <div className="left">
             <h1>SheforShe</h1>
-   
+            {user?.result?(
             <div className="menu">
                 <div className="menuItem">
                   <NavLink to="/">
@@ -48,6 +48,7 @@ export default function Navbar() {
                   </NavLink>
                 </div>
             </div>
+            ):("")}
         </div>
         <div className="right">
         {user?.result? (<div className="button" onClick={logout}>Log Out</div>) : (<div className="button">
