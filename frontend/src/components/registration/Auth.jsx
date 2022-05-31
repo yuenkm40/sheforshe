@@ -8,6 +8,8 @@ import { AUTH } from '../../constants/actionTypes'
 import Icon from './Icon'
 import {gapi} from "gapi-script"
 import { useNavigate } from 'react-router-dom'
+import {signin, signup} from '../../actions/auth'
+const initialState= {firstName:'', lastName:'', email:'', password:'', confirmPassword:''}
 
 export default function Auth() {
   useEffect(() => {
@@ -21,8 +23,17 @@ export default function Auth() {
        }, []);
   const classes = useStyles();
   const [isSignup, setIsSignup] = useState(false);  
-  const handleSubmit = () => {};
-  const handleChange= () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isSignup) {
+      dispatch(signup(formData, navigate))
+    } else {
+      dispatch(signin(formData, navigate))
+    }
+  };
+  const handleChange= (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value});
+  };
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
@@ -31,6 +42,9 @@ export default function Auth() {
     setIsSignup((prevIsSignup) => !prevIsSignup);
     handleShowPassword(false);
   };
+
+  const[formData, setFormData] = useState(initialState);
+
   const googleSuccess= async (res) =>{
     const result = res?.profileObj;
     const token = res?.tokenId;
@@ -45,6 +59,7 @@ export default function Auth() {
     console.log("Google Sign In was unsuccessful.");
     console.log(error);
   };
+
   return (
     <Container component="main">
       <Paper className={classes.paper} elevation={0}>

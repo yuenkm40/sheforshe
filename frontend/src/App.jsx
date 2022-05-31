@@ -16,6 +16,7 @@ import Login from "./components/registration/Login"
 import Profile from "./components/profile/Profile"
 import './app.scss'
 
+
 //Routing paths
 const routes = (
   <Routes>
