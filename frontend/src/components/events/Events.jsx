@@ -15,13 +15,45 @@ export default function Events() {
     </div>
 
     <div className="bottom">
-      <h1>Upcoming Events</h1>
+     
       <div className="eventList">
-      <img src={Connect} alt=""></img>
-      <img src={Connect} alt=""></img>
-      <img src={Connect} alt=""></img>
-      <img src={Connect} alt=""></img>
+        <h1>Upcoming Events</h1>  
+
+        <div className="event">
+          <img src={Connect} alt=""></img>
+          <div className="text">
+          <h2>TUE, JUN 10 2022, 10:00 AM </h2>
+            <h1>Women Startup Roundtable</h1>
+            <h3>Join us for a real talk on what it is like being a founder in Singapore, the importance of community and the topic of vulnerability.</h3>
+            <button>Attend event</button>
+          </div>
+        </div>
+
+        <div className="event">
+          <img src={Connect} alt=""></img>
+          <div className="text">
+          <h2>TUE, JUN 10 2022, 10:00 AM </h2>
+            <h1>Women Startup Roundtable</h1>
+            <h3>Join us for a real talk on what it is like being a founder in Singapore, the importance of community and the topic of vulnerability.</h3>
+            <button>Attend event</button>
+          </div>
+        </div>
+
+        <div className="event">
+          <img src={Connect} alt=""></img>
+          <div className="text">
+          <h2>TUE, JUN 10 2022, 10:00 AM </h2>
+            <h1>Women Startup Roundtable</h1>
+            <h3>Join us for a real talk on what it is like being a founder in Singapore, the importance of community and the topic of vulnerability.</h3>
+            <button>Attend event</button>
+          </div>
+        </div>
+
+ 
+
       </div>
+
+      <div className="map"></div>
     </div>
 
     </div>

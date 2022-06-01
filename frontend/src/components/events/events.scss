@@ -3,6 +3,7 @@
     align-items:flex-start;
     justify-content:flex-start;
     flex-direction:column;
+
     .top-banner{
         height:240px;
         width:100%;
@@ -48,28 +49,91 @@
         }
     }
     .bottom{
-        height:calc(100vh - 240px);
-        flex-direction:column;
-        margin:10px 50px;
-        h1{
-            margin-top:50px;
-            margin-left:30px;
-            font-size:26px;
-            font-weight:700;
-            color:black;
-        }
+        width:100%;
+        display:flex;
+       
+
         .eventList{
-            margin:45px 0px;
             display:flex;
-            flex-direction:row;
+            flex:0.6;
+            flex-direction:column;
+            align-items:flex-start;
+            justify-content:flex-start;
+           
+            h1{
+                margin-top:30px;
+                margin-bottom:10px;
+                margin-left:55px;
+                font-size:26px;
+                font-weight:700;
+                color:black;
+               
+            }
+            .event{
+                height:170px;width:560px;
+                // background-color:white;
+                border-radius:15px;
+                box-shadow: 1px 1px 15px -8px #888888;
+                margin:10px 80px;
+                display:flex;
+                overflow:hidden;
+                
+                .text{
+                    display:flex;
+                    flex-direction:column;
+                    align-items:flex-start;
+                    justify-content:flex-start;
+                    margin:1rem 1rem;
+                    width:52%;
+                    h1{
+                        text-align:left;
+                        font-size:20px;
+                        margin:8px 0px;
+                        font-weight:500;
+                    }
+                    h2{
+                        font-size:14px;
+                        font-weight:500;
+                        color:grey;
+                    }
+
+                    h3{
+                        font-size:12px;
+                        font-weight:300;
+                        overflow:hidden;
+                        
+                    }
+                    button{
+                        text-decoration:none;
+                        border:2px solid white;
+                        padding: 5px 25px;
+                        font-size:12px;
+                        font-weight:600;
+                        border-radius:10px;
+                        margin-right:10px;
+                        cursor:pointer;
+                        color:white;
+                        background-color:rgb(221, 132, 132);
+                        margin-top:8px;
+                        overflow:hidden;
+                    }
+                }
+                
+            }
+            img{
+                height:150px;
+                width:200px;
+                border-radius:15px;
+                margin:0.65rem 1rem;
+               
+            }
+        }
+        .map{
+            display:flex;
+            flex:0.4;
             align-items:center;
             justify-content:center;
-            img{
-                height:100%;
-                width:100%;
-                border-radius:15px;
-                margin:0rem 2rem;
-            }
+         
         }
        
     }
