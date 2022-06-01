@@ -4,30 +4,51 @@
     justify-content:flex-start;
     flex-direction:column;
     .top-banner{
-        height:220px;
+        height:240px;
         width:100%;
         background-color:rgb(247, 197, 205);
         overflow:hidden;
         display:flex;
+        align-items:center;
+        justify-content:center;
         flex-direction:row;
-        img{
-            background-size:cover;
-            height:120%;
-            margin-left:120px;
-            margin-top:20px;
-        }
-        h1{
-            text-align:left;
-            font-size:45px;
-            margin:55px 70px;
-            width:40%;
-            color:white;
+    
+        .banner{
+            height:190px;width:80%;
+            margin:20px 10px;
+            // background-color:white;
+            border-radius:10px;
             overflow:hidden;
-        }
+            display:flex;
+            flex-direction:row;
+            img{
+                
+                height:120%;
+                margin-left:120px;
+                margin-bottom:150px;
+                // margin-top:20px;
+            }
+            background-image: url("../assets/background.jpg");
+          
+            // background-size:1350px 500px;
 
+            h1{
+                text-align:left;
+                font-size:40px;
+                margin-top:55px;
+                margin-left:100px;
+                width:40%;
+                color:rgb(57, 134, 160);
+              
+                // overflow:hidden;
+                z-index:999;
+                position:relative;
+            }
+            
+        }
     }
     .bottom{
-        height:calc(100vh - 220px);
+        height:calc(100vh - 240px);
         flex-direction:column;
         margin:10px 50px;
         h1{

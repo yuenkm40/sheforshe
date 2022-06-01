@@ -1,0 +1,33 @@
+.partnershome{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    .top-banner{
+    height:220px;
+    width:100%;
+    background-color:rgb(247, 197, 205);
+    overflow:hidden;
+    display:flex;
+    flex-direction:row;
+        img{
+            background-size:cover;
+            height:120%;
+            margin-left:120px;
+            margin-top:20px;
+        }
+        h1{
+            text-align:left;
+            font-size:40px;
+            margin:55px 70px;
+            width:50%;
+            color:white;
+            overflow:hidden;
+        
+        }
+
+    }
+    .bottom{
+        height:calc(100vh - 220px);
+    }
+}

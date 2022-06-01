@@ -10,10 +10,11 @@ import Navbar from "./components/navbar/Navbar"
 import Intro from "./components/intro/Intro"
 import About from "./components/about/About"
 import Footer from "./components/intro/Footer"
-import Partners from "./components/partners/Partners"
+import PartnersHome from "./components/partners/PartnersHome"
 import Events from './components/events/Events'
 import Login from "./components/registration/Login"
 import Profile from "./components/profile/Profile"
+import Form from "./components/partners/form/Form"
 import './app.scss'
 
 
@@ -27,10 +28,11 @@ const routes = (
         <Footer/>
     </div>
     } exact/>
-    <Route path="/partners" element={<Partners/>} exact/>
+    <Route path="/partners" element={<PartnersHome/>} exact/>
     <Route path="/events" element={<Events/>} exact/>
     <Route path="/profile" element={<Profile/>} exact/>
     <Route path="/login" element={<Login/>} exact/>
+    <Route path="/admin" element={<Form/>} exact/>
     <Route
         path="*"
         element={<Navigate to="/" replace />}

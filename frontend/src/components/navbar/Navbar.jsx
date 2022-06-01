@@ -16,7 +16,7 @@ export default function Navbar() {
     setUser(null);
   }
   useEffect(() => {
-    const token = user?.token;
+    // const token = user?.token;
     //JWT
     setUser(JSON.parse(localStorage.getItem('profile')));
   },[user, location]);
@@ -45,6 +45,11 @@ export default function Navbar() {
                 <div className="menuItem">
                   <NavLink to="/profile">
                     Profile
+                  </NavLink>
+                </div>
+                <div className="menuItem">
+                  <NavLink to="/admin">
+                    Admin
                   </NavLink>
                 </div>
             </div>

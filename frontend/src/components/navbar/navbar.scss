@@ -21,6 +21,7 @@
 
             .menu{
                 display:flex;
+                flex-direction:row;
                 cursor:pointer;
 
                 .menuItem a{
