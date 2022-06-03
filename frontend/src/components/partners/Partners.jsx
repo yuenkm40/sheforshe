@@ -7,21 +7,21 @@ import { getPartners } from '../../actions/partners';
 import { useDispatch } from 'react-redux';
 export default function Partners() {
     const classes = useStyles();
-    const partners = useSelector((state) => state.partners);
+    const { partners } = useSelector((state) => state.partners);
     console.log(partners);
     // for (let i = 0; i< partners.length;i++) {
     //   console.log(partners[i]);
     // }
-    const dispatch = useDispatch();
-    useEffect(() => {
-      dispatch(getPartners());
-    },[dispatch]);
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //   dispatch(getPartners());
+    // },[dispatch]);
    
   return (
-    !partners.length ? <CircularProgress/> : (
+    !partners?.length ? <CircularProgress/> : (
     <Grid className={classes.container} container alignItems="stretch" spacing={3}>
       {partners.map((partner) => (
-         <Grid key={partner._id} item xs={12} sm={4}>
+         <Grid key={partner._id} item xs={12} sm={3}>
             <Partner partner={partner}/>
          </Grid>
       ))}

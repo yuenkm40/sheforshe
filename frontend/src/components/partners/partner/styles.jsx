@@ -42,7 +42,7 @@ export default makeStyles({
   details: {
     display: 'flex',
     justifyContent: 'space-between',
-    margin: '5px 0px 5px 10px',
+    margin: '10px 0px 5px 10px',
   },
   title: {
     padding: '0px 16px',
@@ -51,5 +51,9 @@ export default makeStyles({
     padding: '0 16px 8px 16px',
     display: 'flex',
     justifyContent: 'space-between',
+  },
+  cardAction: {
+    display: 'block',
+    textAlign: 'initial',
   },
 });

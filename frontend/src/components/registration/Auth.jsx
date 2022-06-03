@@ -33,7 +33,7 @@ export default function Auth() {
       dispatch(signin(formData, navigate))
     }
   };
-  
+
   const handleChange= (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value});
   };
@@ -55,7 +55,7 @@ export default function Auth() {
     const token = res?.tokenId;
     try {
       dispatch({type:'AUTH', data: {result,token}});
-      navigate('/events');
+      navigate('/partners');
     } catch(error) {
       console.log(error);
     }

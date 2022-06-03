@@ -11,4 +11,14 @@ export default makeStyles((theme) => ({
   actionDiv: {
     textAlign: 'center',
   },
+  input: {
+    fontSize:15,
+    height:'60%',
+  },
+  button:{
+    width:'10%',
+    alignItems:'center',
+    marginTop:10,
+ 
+  },
 }));

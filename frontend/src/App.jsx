@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate
+  Navigate,
 } from 'react-router-dom'
 
 import Navbar from "./components/navbar/Navbar"
@@ -11,10 +11,12 @@ import Intro from "./components/intro/Intro"
 import About from "./components/about/About"
 import Footer from "./components/intro/Footer"
 import PartnersHome from "./components/partners/PartnersHome"
+import PartnerDetails from "./components/partners/partnerDetails/PartnerDetails"
 import Events from './components/events/Events'
 import Login from "./components/registration/Login"
 import Profile from "./components/profile/Profile"
 import Admin from "./components/partners/form/Admin"
+
 import './app.scss'
 
 
@@ -29,6 +31,8 @@ const routes = (
     </div>
     } exact/>
     <Route path="/partners" element={<PartnersHome/>} exact/>
+    <Route path="/partners/search" element={<PartnersHome/>} exact/>
+    <Route path="/partners/:id" element={<PartnerDetails/>} exact/>
     <Route path="/events" element={<Events/>} exact/>
     <Route path="/profile" element={<Profile/>} exact/>
     <Route path="/login" element={<Login/>} exact/>
