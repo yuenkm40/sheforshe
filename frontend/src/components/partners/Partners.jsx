@@ -9,20 +9,24 @@ export default function Partners() {
     const classes = useStyles();
     const partners = useSelector((state) => state.partners);
     console.log(partners);
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //   dispatch(getPartners());
-    // },[dispatch]);
+    // for (let i = 0; i< partners.length;i++) {
+    //   console.log(partners[i]);
+    // }
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(getPartners());
+    },[dispatch]);
    
   return (
     !partners.length ? <CircularProgress/> : (
     <Grid className={classes.container} container alignItems="stretch" spacing={3}>
       {partners.map((partner) => (
-         <Grid key={partner._id} item xs={12} sm={6}>
+         <Grid key={partner._id} item xs={12} sm={4}>
             <Partner partner={partner}/>
          </Grid>
       ))}
     </Grid>
   )
+
   );
 }

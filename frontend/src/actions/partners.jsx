@@ -6,6 +6,7 @@ export const getPartners = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPartners();
         dispatch({ type:FETCH_ALL, payload: data });
+        console.log(data);
     } catch(error) {
         console.log(error.message);
     }

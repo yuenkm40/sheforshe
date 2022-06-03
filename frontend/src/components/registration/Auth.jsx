@@ -9,6 +9,7 @@ import Icon from './Icon'
 import {gapi} from "gapi-script"
 import { useNavigate } from 'react-router-dom'
 import {signin, signup} from '../../actions/auth'
+
 const initialState= {firstName:'', lastName:'', email:'', password:'', confirmPassword:''}
 
 export default function Auth() {
@@ -23,6 +24,7 @@ export default function Auth() {
        }, []);
   const classes = useStyles();
   const [isSignup, setIsSignup] = useState(false);  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isSignup) {
@@ -31,6 +33,7 @@ export default function Auth() {
       dispatch(signin(formData, navigate))
     }
   };
+  
   const handleChange= (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value});
   };
@@ -38,9 +41,11 @@ export default function Auth() {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const switchMode = () => {
+    setFormData(initialState);
     setIsSignup((prevIsSignup) => !prevIsSignup);
-    handleShowPassword(false);
+    setShowPassword(false);
   };
 
   const[formData, setFormData] = useState(initialState);

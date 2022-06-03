@@ -4,9 +4,9 @@ import PostDesc from '../models/postDesc.js';
 
 export const getPartners = async (req, res) => {
     try {
-        const postPartners = await PostDesc.find().select('name');
+        const postPartners = await PostDesc.find();
         console.log("getting partner");
-        console.log(postPartners);
+        // console.log(postPartners);
         res.status(200).json(postPartners);
     } catch(error) {
         res.status(404).json({message: error.message});

@@ -12,7 +12,7 @@ export default function Form( {currentId, setCurrentId}) {
   const dispatch = useDispatch();
   const classes = useStyles();
   const clear = () => {
-    setCurrentId(0);
+    // setCurrentId(0);
     setPartnerData({  name: '', occupation: '', tags: '', selectedFile: '', description:'' });
   };
 
@@ -20,6 +20,7 @@ export default function Form( {currentId, setCurrentId}) {
     e.preventDefault();
     console.log(partnerData);
     dispatch(createPartner(partnerData));
+    clear();
     // if (currentId === 0) {
     //   dispatch(createPartner(partnerData));
     //   clear();
@@ -36,7 +37,7 @@ export default function Form( {currentId, setCurrentId}) {
       <TextField name="name" InputLabelProps={{className: classes.input}} variant="outlined" label="Name" fullWidth value={partnerData.name} onChange={(e) => setPartnerData({ ...partnerData, name: e.target.value })} />
       <TextField name="tags" InputLabelProps={{className: classes.input}} variant="outlined" label="Tags (coma separated)" fullWidth value={partnerData.tags} onChange={(e) => setPartnerData({ ...partnerData, tags: e.target.value.split(',') })} />
       <TextField name="occupation" InputLabelProps={{className: classes.input}} variant="outlined" label="Occupation" fullWidth value={partnerData.occupation} onChange={(e) => setPartnerData({ ...partnerData, occupation: e.target.value })} />
-      <TextField name="description" InputLabelProps={{className: classes.input}} variant="outlined" label="Description" fullWidth  multiline rows={4} value={partnerData.description} onChange={(e) => setPartnerData({ ...partnerData, description: e.target.value })} />
+      <TextField name="description" InputLabelProps={{className: classes.input}} variant="outlined" label="Description (no more than 50 words)" fullWidth  multiline rows={4} value={partnerData.description} onChange={(e) => setPartnerData({ ...partnerData, description: e.target.value })} />
       
       <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPartnerData({ ...partnerData, selectedFile: base64 })} /></div>
       <Grid item xs={12} sm = {6}><Button className={classes.buttonSubmit} variant="contained"color="primary" size="small" onClick={clear} fullWidth>Clear</Button></Grid>
