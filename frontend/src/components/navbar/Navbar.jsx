@@ -9,7 +9,7 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(user);
+  // console.log(user);
   const logout= () => {
     dispatch({type:'LOGOUT'});
     navigate('/');
@@ -47,11 +47,11 @@ export default function Navbar() {
                     Profile
                   </NavLink>
                 </div>
-                <div className="menuItem">
+                {/* <div className="menuItem">
                   <NavLink to="/admin">
                     Admin
                   </NavLink>
-                </div>
+                </div> */}
             </div>
             ):("")}
         </div>

@@ -16,15 +16,44 @@
             margin-left:120px;
             margin-top:20px;
         }
-        h1{
-            text-align:left;
-            font-size:40px;
-            margin:55px 70px;
+        .text{
+            display:flex;
+            flex-direction:column;
+            // align-items:flex-start;
+            justify-content:center;
             width:50%;
-            color:white;
-            overflow:hidden;
-        
+            h1{
+                text-align:left;
+                font-size:40px;
+                margin:20px 20px;
+                width:100%;
+                color:white;
+                overflow:hidden;
+            
+            }
+            button {
+                text-decoration:none;
+                border:none;
+                padding: 10px 25px;
+                font-size:12px;
+                font-weight:600;
+                border-radius:15px;
+                width:150px;
+                cursor:pointer;
+                color:white;
+                background-color:rgb(221, 132, 132);
+                overflow:hidden;
+                margin-left:20px;
+                a{
+                    color:white;
+                }
+                a:link{
+                    text-decoration:none;
+                    color:white;
+                }
+            }
         }
+        
 
     }
     .bottom{

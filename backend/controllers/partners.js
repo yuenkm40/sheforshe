@@ -1,8 +1,11 @@
+import express from 'express';
+import mongoose from 'mongoose';
 import PostDesc from '../models/postDesc.js';
 
 export const getPartners = async (req, res) => {
     try {
-        const postPartners = await PostDesc.find();
+        const postPartners = await PostDesc.find().select('name');
+        console.log("getting partner");
         console.log(postPartners);
         res.status(200).json(postPartners);
     } catch(error) {
