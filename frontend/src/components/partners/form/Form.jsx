@@ -8,7 +8,7 @@ import FileBase from 'react-file-base64';
 
 export default function Form( {currentId, setCurrentId}) {
   const [partnerData, setPartnerData] = useState({ name: '', occupation: '', tags: '', selectedFile: '', description:'' });
-  const partner = useSelector((state) => (currentId ? state.partners.find((description) => description._id === currentId) : null));
+  const partner = useSelector((state) => (currentId ? state.partners.partners.find((description) => description._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
   const clear = () => {

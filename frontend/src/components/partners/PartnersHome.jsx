@@ -34,7 +34,7 @@ export default function PartnersHome() {
       dispatch(getPartnersBySearch({search, tags: tags.join(',')}));
       navigate(`/partners/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
     } else {
-      navigate('partners');
+      navigate('/partners');
     }
   };
 

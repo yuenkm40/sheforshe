@@ -22,7 +22,7 @@ export const getPartners = (page) => async (dispatch) => {
 export const getPartnersBySearch = (searchQuery) => async (dispatch) => {
     try {
         const { data : { data }} = await api.fetchPartnersBySearch(searchQuery);
-        dispatch({ type:FETCH_BY_SEARCH, payload: data});
+        dispatch({ type:FETCH_BY_SEARCH, payload:  data });
         console.log(data);
     } catch (error) {
         console.log(error);

@@ -13,22 +13,32 @@ function PartnerDetails() {
     const classes = useStyles();
     const { id } = useParams();
 
-    const openPartner = (_id) => {
-      navigate(`/partners/${partner._id}`);
-    };
+   
+  
     useEffect(() => {
       dispatch(getPartner(id));
+      dispatch(getPartnersBySearch({search:'none', tags: partner?.tags.join(',')}));
     },[id,dispatch]);
+    console.log("Partners");
+    console.log(partners);
 
     // useEffect(() => {
-    //   if (partner) {
-    //     dispatch(getPartnersBySearch({search:'none', tags: partner?.tags.join(',')}))
+    //   try{
+    //     dispatch(getPartnersBySearch({search:'none', tags: partner?.tags.join(',')}));
+    //   } catch (error) {
+    //     console.log(error.message);
     //   }
     // },[partner,dispatch]);
+
     if (!partner) return null;
 
+    const openPartner = (_id) => {
+      navigate(`/partners/${_id}`);
+    };
+
     const recommendedPartners = partners.filter(({_id}) => _id !== partner._id);
-  
+    console.log("Recommended Partners");
+    console.log(recommendedPartners);
   return (
     <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={3}>
        <div className={classes.card}>
@@ -43,8 +53,8 @@ function PartnerDetails() {
             Lidl Asia Pte Limited, Graduate Trainee Program |  Sep 2019 - Aug 2021 <br></br>
             Circles.Life, Intern | May 2019 - Aug 2019</Typography>
           <Divider style={{ margin: '20px 0' }} />
-          <Typography variant="body1"><strong>Academic Details</strong></Typography>
-          <Divider style={{ margin: '20px 0' }} />
+          <Typography variant="body1"><strong>Academic Details</strong><br></br> Singapore Management University School of Information Systems</Typography>
+          {/* <Divider style={{ margin: '20px 0' }} /> */}
         </div>
         <div className={classes.imageSection}>
           <img className={classes.media} src={partner.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt={partner.name} />
@@ -52,13 +62,14 @@ function PartnerDetails() {
       </div>
       {!!recommendedPartners.length && (
         <div className={classes.section}>
-          <h1 style={{fontSize:20,marginLeft:10,fontWeight:400}}>You might also like:</h1>
+          <h1 style={{fontSize:20,marginLeft:10,marginTop:12,fontWeight:400}}>You might also like:</h1>
           <div className={classes.recommendedPosts}>
             {recommendedPartners.map(({ name, description, selectedFile, _id }) => (
               <div style={{ margin: '20px', cursor: 'pointer' }} onClick={() => openPartner(_id)} key={_id}>
-                <Typography gutterBottom variant="subtitle2">{name}</Typography>
-                <Typography gutterBottom variant="subtitle2">{description}</Typography>
-                <img src={selectedFile} width="200px" alt="" />
+                <h3>{name}</h3>
+                <img src={selectedFile} height="145px" alt="" style={{marginTop:10,borderRadius:10}} />
+                <h4 style={{marginTop:10, fontSize:15,fontWeight:300,marginBottom:10,width:'65%'}}>{description}</h4>
+               
               </div>
             ))}
           </div>
