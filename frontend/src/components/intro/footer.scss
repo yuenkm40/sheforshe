@@ -34,6 +34,9 @@
         padding: 30px 50px;
         margin-top:110px;
         height:122px;
+        position:relative;
+        top:15px;
+        // position:absolute;
 
         width:100%;
         background-color:white;
@@ -76,6 +79,7 @@
         width:100%;
         background-color:white;
         height:48px;
+        position:relative;top:15px;
          
         p{
             font-size:12px;

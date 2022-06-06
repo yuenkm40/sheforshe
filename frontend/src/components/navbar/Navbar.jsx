@@ -4,6 +4,7 @@ import {NavLink, useLocation} from 'react-router-dom';
 import {useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import decode from 'jwt-decode';
+import {Person, Chat, Notifications } from "@material-ui/icons";
 
 export default function Navbar() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -61,7 +62,9 @@ export default function Navbar() {
             ):("")}
         </div>
         <div className="right">
-        {user?.result? (<div className="button" onClick={logout}>Log Out</div>) : (<div className="button">
+        {user?.result? (<> <div className="IconItem"> <NavLink to="/messages"> <Chat /> </NavLink> </div> 
+        <div className="button" onClick={logout}>Log Out</div></>) : 
+        (<div className="button">
             <NavLink to="/login">
                 Login
             </NavLink>

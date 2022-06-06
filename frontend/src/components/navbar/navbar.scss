@@ -35,6 +35,17 @@
         }
 
         .right{
+            display:flex;
+            align-items:center;
+            .IconItem{
+                margin-right: 45px;
+                cursor: pointer;
+                margin-top:7px;
+                color:white;
+                a{
+                    color:white;
+                }
+            }
             .button {
                 text-decoration:none;
                 border:2px solid white;

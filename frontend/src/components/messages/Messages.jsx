@@ -1,10 +1,11 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect, useRef} from 'react'
 import './messages.scss';
 import Conversations from './Conversations'
 import Message from './Message'
 import axios from 'axios'
 import MessageInput from './MessageInput'
 import Robot from '../assets/robot.gif'
+import {io} from 'socket.io-client';
 
 export default function Messages() {
     const user = JSON.parse(localStorage.getItem('profile'));
@@ -13,12 +14,51 @@ export default function Messages() {
     const [conversations,setConversations] = useState([]);
     const[currentChat,setCurrentChat] = useState(null);
     const [messages,setMessages] = useState([]);
+    const socket = useRef();
+    const [arrivalMessage,setArrivalMessage] = useState(null);
+    useEffect(() => {
+        socket.current = io("ws://localhost:8900");
+        socket.current.on("getMessage", data => {
+            setArrivalMessage({
+                sender: data.senderId,
+                text: data.text,
+                createdAt: Date.now()
+            });
+        });
+    },[]);
+    useEffect(() => {
+        arrivalMessage && currentChat?.members.includes(arrivalMessage.sender)  &&
+        setMessages((prev) => [...prev,arrivalMessage]);
+    },[arrivalMessage,currentChat])
+    useEffect(() => {
+        const addUsers = async () => {
+            try {
+                socket.current.emit("addUser",user?.result._id);
+                socket.current.on("getUsers",users => {
+                console.log(users);
+                })
+            }catch(error) {
+                console.log(error);
+            }
+        }
+        addUsers();
+        
+    },[user])
     const handleSendMsg = async(newMessage) => {
         const msg = {
             sender: user.result._id,
             text:newMessage,
             conversationId: currentChat?._id,
         }
+        const receiverId = currentChat.members.find(
+            (member) => member !== user.result._id
+        );
+        socket.current.emit("sendMessage", {
+            senderId: user.result._id,
+            receiverId,
+            text:newMessage,
+        });
+
         try{
             const res = await axios.post('http://localhost:5000/messages/',msg);
             setMessages([...messages, res.data]);
@@ -26,6 +66,8 @@ export default function Messages() {
             console.log(error);
         }
     }
+   
+
     useEffect(() => {
         const getConversations = async () => {
             try {
@@ -39,7 +81,6 @@ export default function Messages() {
         getConversations();
     },[user.result._id])
     console.log(currentChat);
-    console.log(currentChat?._id);
   
    useEffect(() => {
        const getMessages = async() => {
@@ -54,11 +95,14 @@ export default function Messages() {
        getMessages();
    })
    console.log(messages);
+
+
+
   return (
     <div className="messages">
       <div className = "chatMenu">
         <div className = "chatMenuWrapper">
-            <input  placeholder="Search for mentors" className="chatMenuInput"/>
+            <input  placeholder="Search for partners" className="chatMenuInput"/>
             {conversations.map((c) => (
                 <div onClick={() => setCurrentChat(c)}>
                 <Conversations conversations={c} currentUser = {user}/>
