@@ -4,12 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './styles';
 import { createPartner } from '../../../actions/partners';
 import FileBase from 'react-file-base64';
+import {useNavigate} from 'react-router-dom';
 
 
 export default function Form( {currentId, setCurrentId}) {
   const [partnerData, setPartnerData] = useState({ name: '', occupation: '', tags: '', selectedFile: '', description:'' });
   const partner = useSelector((state) => (currentId ? state.partners.partners.find((description) => description._id === currentId) : null));
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const classes = useStyles();
   const clear = () => {
     // setCurrentId(0);
@@ -21,6 +23,7 @@ export default function Form( {currentId, setCurrentId}) {
     console.log(partnerData);
     dispatch(createPartner(partnerData));
     clear();
+    navigate('/partners');
     // if (currentId === 0) {
     //   dispatch(createPartner(partnerData));
     //   clear();

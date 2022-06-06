@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Paper, Typography, CircularProgress, Divider } from '@material-ui/core/';
+import React, { useEffect, useState } from 'react';
+import { Paper, Typography, CircularProgress, Divider, Button } from '@material-ui/core/';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -13,8 +13,8 @@ function PartnerDetails() {
     const classes = useStyles();
     const { id } = useParams();
 
-   
-  
+    const [request,setRequest] = useState(false);
+    const [text, setText] = useState("Connect");
     useEffect(() => {
       dispatch(getPartner(id));
       dispatch(getPartnersBySearch({search:'none', tags: partner?.tags.join(',')}));
@@ -22,6 +22,15 @@ function PartnerDetails() {
     console.log("Partners");
     console.log(partners);
 
+    useEffect(() => {
+      switch(request) {
+        case true:
+          setText("Your Request has been sent");
+          break;
+        default:
+          setText("Connect");
+      }
+    },[request])
     // useEffect(() => {
     //   try{
     //     dispatch(getPartnersBySearch({search:'none', tags: partner?.tags.join(',')}));
@@ -40,10 +49,15 @@ function PartnerDetails() {
     console.log("Recommended Partners");
     console.log(recommendedPartners);
   return (
-    <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={3}>
+    <Paper style={{ padding: '30px', borderRadius: '15px' }} elevation={3}>
        <div className={classes.card}>
         <div className={classes.section}>
-          <h1 style={{fontSize:40}}>{partner.name}</h1>
+        <div className ="first-line" style={{display:'flex', flexDirection:'row',justifyContent:'space-between'}}>
+        <h1 style={{fontSize:40}}>{partner.name}</h1>
+          <Button className={classes.button} onClick={() => setRequest(!request)} style={{height:40,marginRight:30,marginTop:5,backgroundColor:"pink", color:"white"}}
+        variant="contained">{text}</Button>
+        </div>
+          
           <h2 style={{color:'grey',fontWeight:400, fontSize:20,marginTop:6}}>{partner.tags.map((tag) => `#${tag} `)}</h2>
           <Typography gutterBottom variant="body1" component="p" style={{marginTop:20}}>{partner.description}</Typography>
         
@@ -62,7 +76,7 @@ function PartnerDetails() {
       </div>
       {!!recommendedPartners.length && (
         <div className={classes.section}>
-          <h1 style={{fontSize:20,marginLeft:10,marginTop:12,fontWeight:400}}>You might also like:</h1>
+          <h1 style={{fontSize:20,marginTop:12,fontWeight:400}}>You might also like:</h1>
           <div className={classes.recommendedPosts}>
             {recommendedPartners.map(({ name, description, selectedFile, _id }) => (
               <div style={{ margin: '20px', cursor: 'pointer' }} onClick={() => openPartner(_id)} key={_id}>

@@ -16,6 +16,7 @@ import Events from './components/events/Events'
 import Login from "./components/registration/Login"
 import Profile from "./components/profile/Profile"
 import Admin from "./components/partners/form/Admin"
+import Messages from "./components/messages/Messages"
 
 import './app.scss'
 
@@ -37,6 +38,7 @@ const routes = (
     <Route path="/profile" element={<Profile/>} exact/>
     <Route path="/login" element={<Login/>} exact/>
     <Route path="/admin" element={<Admin/>} exact/>
+    <Route path="/messages" element={<Messages/>} exact/>
     <Route
         path="*"
         element={<Navigate to="/" replace />}

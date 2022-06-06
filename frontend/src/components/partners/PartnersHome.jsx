@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import './partnershome.scss'
 import Partners from './Partners';
 import EventPic from '../assets/women.png'
-import {NavLink, useNavigate, useLocation, Navigate, useSearchParams} from 'react-router-dom';
+import {NavLink, useNavigate, useLocation, useSearchParams} from 'react-router-dom';
 import {Paper, TextField, Button} from '@material-ui/core';
 import ChipInput from 'material-ui-chip-input';
 import Pagination from './Pagination';
 import useStyles from './styles.jsx';
 import {getPartnersBySearch } from '../../actions/partners';
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -26,14 +26,21 @@ export default function PartnersHome() {
       searchPartner();
     }
   };
+  
+ 
 
   const handleAdd = (tag) => setTags([...tags, tag]);
   const handleDelete = (tagToDelete) => setTags(tags.filter((tag) => tag !== tagToDelete));
+ 
   const searchPartner = () => {
     if (search.trim() || tags) {
       dispatch(getPartnersBySearch({search, tags: tags.join(',')}));
-      navigate(`/partners/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+  
+        navigate(`/partners/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+     
+
     } else {
+      console.log("no search")
       navigate('/partners');
     }
   };
