@@ -1,9 +1,36 @@
-import React from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import './events.scss'
 
 import Connect from '../assets/connect.jpg'
 import Banner from '../assets/banner.png'
+import Map from '../map/Map'
+import EventSearch from './EventSearch';
+
 export default function Events() {
+
+  const [initialData, setInitialData] = useState([]);
+  //To store the events
+  const [searchResult, setSearchResult] = useState([]);
+
+  //Load data
+  useEffect(() => {
+    const sendRequest = async () => {
+      try{
+        const response = await fetch('http://localhost:5000/events');
+        const responseData = await response.json();s
+        setInitialData(responseData);
+      }catch(error){
+        console.log(error.message);
+      }
+    }
+    sendRequest();
+  },[initialData])
+
+  const filteredMapData = useCallback((index) => {
+    setSearchResult(index);
+  });
+
+
   return (
     <div className="events" id="events">
    
@@ -17,43 +44,42 @@ export default function Events() {
     <div className="bottom">
      
       <div className="eventList">
-        <h1>Upcoming Events</h1>  
 
-        <div className="event">
-          <img src={Connect} alt=""></img>
-          <div className="text">
-          <h2>TUE, JUN 10 2022, 10:00 AM </h2>
-            <h1>Women Startup Roundtable</h1>
-            <h3>Join us for a real talk on what it is like being a founder in Singapore, the importance of community and the topic of vulnerability.</h3>
-            <button>Attend event</button>
-          </div>
+        <div className="eventHeader">
+          <h1>Events for you</h1>
         </div>
 
-        <div className="event">
-          <img src={Connect} alt=""></img>
-          <div className="text">
-          <h2>TUE, JUN 10 2022, 10:00 AM </h2>
-            <h1>Women Startup Roundtable</h1>
-            <h3>Join us for a real talk on what it is like being a founder in Singapore, the importance of community and the topic of vulnerability.</h3>
-            <button>Attend event</button>
+          <div className="filter">
+            <EventSearch initialData={initialData} filterSearch={filteredMapData}/>
           </div>
-        </div>
 
-        <div className="event">
-          <img src={Connect} alt=""></img>
-          <div className="text">
-          <h2>TUE, JUN 10 2022, 10:00 AM </h2>
-            <h1>Women Startup Roundtable</h1>
-            <h3>Join us for a real talk on what it is like being a founder in Singapore, the importance of community and the topic of vulnerability.</h3>
-            <button>Attend event</button>
-          </div>
-        </div>
 
- 
+          <h4>
+            {`${searchResult?.length} Events`}
+          </h4>
+
+          {/* Renders the list of events */}
+          <ul className="event-list">
+            {searchResult?.map(event => (
+              <div className="event">
+                <img src={Connect} alt=""></img>
+                <div className="text">
+                <h2>{event.date}</h2>
+                  <h1>{event.title}</h1>
+                  <h3>{event.description}</h3>
+                  <button>Attend event</button>
+                </div>
+              </div>
+            ))}
+          </ul>
 
       </div>
-
-      <div className="map"></div>
+      
+      <div className="map">
+        <Map>
+          {searchResult}
+        </Map>
+      </div>
     </div>
 
     </div>

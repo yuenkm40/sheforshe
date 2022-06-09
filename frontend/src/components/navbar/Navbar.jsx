@@ -25,7 +25,7 @@ export default function Navbar() {
     }
     //JWT
     setUser(JSON.parse(localStorage.getItem('profile')));
-  },[user, location]);
+  },[location]);
   return (
     <div className="navbar" id="navbar">
       <div className="wrapper">

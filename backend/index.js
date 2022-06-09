@@ -5,7 +5,8 @@ import cors from 'cors';
 import partnerRoutes from './routes/partners.js';
 import userRoutes from './routes/users.js';
 import conversationRoute from './routes/conversations.js';
-import messageRoute from './routes/messages.js'
+import messageRoute from './routes/messages.js';
+import eventRoute from './routes/events.js';
 const app = express();
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
@@ -16,6 +17,7 @@ app.use('/partners', partnerRoutes);
 app.use('/user',userRoutes);
 app.use('/conversations',conversationRoute);
 app.use('/messages',messageRoute);
+app.use('/events', eventRoute);
 
 const CONNECTION_URL = 'mongodb+srv://yuenkm40:yuenkm1112@cluster0.ocjtoqj.mongodb.net/?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;

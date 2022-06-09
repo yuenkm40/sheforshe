@@ -1,7 +1,6 @@
 .app{
     // height:100vh;
     overflow:hidden;
-  
 
     .sections{
         width: 100%;
@@ -10,6 +9,7 @@
         scroll-behavior: smooth;
         scroll-snap-type: y mandatory;
         scrollbar-width: none; //for firefox
+        overflow-x: hidden;
         &::-webkit-scrollbar{
             display:none; //hiding scrollbar at right hand side 
         }

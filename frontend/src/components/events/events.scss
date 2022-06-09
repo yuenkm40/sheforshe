@@ -55,26 +55,84 @@
 
         .eventList{
             display:flex;
-            flex:0.6;
+            flex:0.5;
             flex-direction:column;
             align-items:flex-start;
             justify-content:flex-start;
-           
-            h1{
+
+            .eventHeader{
                 margin-top:30px;
                 margin-bottom:10px;
                 margin-left:55px;
-                font-size:26px;
-                font-weight:700;
-                color:black;
-               
+            
+                h1{
+                    font-size:26px;
+                    font-weight:700;
+                    color:black;
+                
+                }
             }
+
+            .filter{
+                margin-left:50px;
+                margin-bottom: 10px;
+                margin-top: 10px;
+                display:flex;
+                flex-direction: row;
+
+                .isClicked {
+                    text-decoration:none;
+                    border:none;
+                    padding: 10px 25px;
+                    font-size:12px;
+                    font-weight:600;
+                    border-radius:15px;
+                    width:150px;
+                    cursor:pointer;
+                    color:white;
+                    background-color:rgb(245, 185, 185);
+                    overflow:hidden;
+                    margin-left:20px;
+                }
+
+                .isNotClicked {
+                    text-decoration:none;
+                    border-color:#202020;
+                    padding: 8px 25px;
+                    font-size:12px;
+                    font-weight:600;
+                    border-radius:15px;
+                    width:150px;
+                    cursor:pointer;
+                    color:#3f3e3e;
+                    background-color:white;
+                    overflow:hidden;
+                    margin-left:20px;
+                }
+            }
+
+            h4{
+                margin-top: 15px;
+                margin-left: 60px;
+                font-weight:700;
+                color:#a1a1a1;
+            }
+
+            .event-list{
+                max-height:545px;
+                overflow-y: scroll;
+                scroll-behavior: smooth;
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+            }
+            
             .event{
                 height:170px;width:560px;
                 // background-color:white;
                 border-radius:15px;
                 box-shadow: 1px 1px 15px -8px #888888;
-                margin:10px 80px;
+                margin:10px 20px;
                 display:flex;
                 overflow:hidden;
                 
@@ -130,10 +188,9 @@
         }
         .map{
             display:flex;
-            flex:0.4;
-            align-items:center;
-            justify-content:center;
-         
+            height:700px;
+            flex:0.5;
+            margin:35px 20px 15px 15px
         }
        
     }
