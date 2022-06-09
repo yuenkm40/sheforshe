@@ -25,9 +25,7 @@ export default function PartnersHome() {
     if (e.keyCode === 13) {
       searchPartner();
     }
-  };
-  
- 
+  }; 
 
   const handleAdd = (tag) => setTags([...tags, tag]);
   const handleDelete = (tagToDelete) => setTags(tags.filter((tag) => tag !== tagToDelete));
