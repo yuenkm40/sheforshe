@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# SheforShe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+SheforShe hopes to build a global community of female entrepreneurs and innovators. It is a platform that provides knowledge and ecosystem support for aspiring female entrepreneurs to help them set up and scale up their businesses. 
 
-In the project directory, you can run:
+**Connect with fellow entrepreneurs and founders** - creating a community of women entrepreneurs so that you have a strong support system \
+**Access resources you would need when starting a business** - whether you are finding a fellow startup co-founder or an experienced mentor, look no further. \
+**Put a spotlight on the stories of women entrepreneurs** - attend spotlight sharing sessions where females share their personal stories and journeys when starting a business 
 
-### `npm start`
+## Features
+### Authentication
 
+Users are able to sign up using their email accounts and password, or use Google Sign-In which was implemented using Google OAuth authentication. Users are also able to update their personal details through the profile page.  
+
+### Partners section 
+Users would be able to browse, search and filter for other women partner profiles according to their industry tags. Women profiles from similar industry of choice would also appear in the recommended section at the bottom of each women profile. If user is interested in connecting with a particular potential partner, she would be able to request for a connection with the other party. 
+
+### Live instant messaging 
+Users are able to chat with a partner in real-time through the instant messaging feature, implemented with socket.io. 
+
+### Events section
+Users are able to participate and host community events such as seminars for other females to learn new industry relevant knowledge and network with other females. Women can also empower one another through meaningful spotlight sessions organized through the platform. Users would be able to search and filter events with a map visualization of the event venues through the Google Maps API. Users can also pay for seminar events organized through thr Stripe payments system. 
+
+## Running the application 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technology Stack
 
-### `npm test`
+SheforShe is a MERN stack application built using React, Redux, Node.js, Express.js, MongoDB and will be hosted on the Google Cloud Platform. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
