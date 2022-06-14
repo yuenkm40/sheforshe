@@ -82,7 +82,7 @@ export default function Events() {
                   <h1>{event.title}</h1>
                   <h3>{event.description}</h3>
                   {/* Address portion */}
-                  <h6><LocationOn fontSize="small"/> {event.address}</h6>
+                  <h6><LocationOn fontSize="small" style={{ color: 'red' }}/> {event.address}</h6>
                 </div>
               </div>
             ))}
