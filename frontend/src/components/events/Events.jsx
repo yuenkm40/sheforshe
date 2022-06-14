@@ -18,19 +18,6 @@ export default function Events() {
       try{
         const response = await fetch('http://localhost:5000/events');
         const responseData = await response.json();
-        setSearchResult(responseData);
-      }catch(error){
-        console.log(error.message);
-      }
-    }
-    sendRequest();
-  },[])
-
-  useEffect(() => {
-    const sendRequest = async () => {
-      try{
-        const response = await fetch('http://localhost:5000/events');
-        const responseData = await response.json();
         setInitialData(responseData);
       }catch(error){
         console.log(error.message);
