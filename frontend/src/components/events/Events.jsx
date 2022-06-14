@@ -1,11 +1,10 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import './events.scss'
 
-import Connect from '../assets/connect.jpg'
 import Banner from '../assets/banner.png'
 import Map from '../map/Map'
 import EventSearch from './EventSearch';
-import {LocationOn} from '@material-ui/icons';
+import EventCard from './EventsCard';
 
 export default function Events() {
 
@@ -19,13 +18,14 @@ export default function Events() {
       try{
         const response = await fetch('http://localhost:5000/events');
         const responseData = await response.json();
+        setSearchResult(responseData);
         setInitialData(responseData);
       }catch(error){
         console.log(error.message);
       }
     }
     sendRequest();
-  },[initialData])
+  },[])
 
   const filteredMapData = useCallback((index) => {
     setSearchResult(index);
@@ -62,16 +62,7 @@ export default function Events() {
           {/* Renders the list of events */}
           <ul className="event-list">
             {searchResult?.map(event => (
-              <div className="event">
-                <img src={Connect} alt=""></img>
-                <div className="text">
-                <h2>{event.date}</h2>
-                  <h1>{event.title}</h1>
-                  <h3>{event.description}</h3>
-                  {/* Address portion */}
-                  <h6><LocationOn fontSize="small" style={{ color: 'red' }}/> {event.address}</h6>
-                </div>
-              </div>
+              <EventCard event={event}/>
             ))}
           </ul>
 
