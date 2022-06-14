@@ -5,11 +5,12 @@ import {LocationOn} from '@material-ui/icons';
 
 import './eventscard.scss'
 
-export default function EventsScard({event}) {
+export default function EventsCard({event}) {
   const navigate = useNavigate();
 
-  const openevent = (event) => {
-    navigate(`/event/${event._id}`);
+  const openevent = () => {
+    console.log(event._id);
+    navigate(`/events/${event._id}`);
   };
 
   return (

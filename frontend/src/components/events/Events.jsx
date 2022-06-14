@@ -58,11 +58,11 @@ export default function Events() {
           <h4>
             {`${searchResult?.length} Events`}
           </h4>
-
+          {console.log(searchResult)}
           {/* Renders the list of events */}
           <ul className="event-list">
             {searchResult?.map(event => (
-              <EventCard event={event}/>
+              <EventCard event={event} />
             ))}
           </ul>
 
