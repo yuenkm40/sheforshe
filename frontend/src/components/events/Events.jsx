@@ -5,6 +5,7 @@ import Connect from '../assets/connect.jpg'
 import Banner from '../assets/banner.png'
 import Map from '../map/Map'
 import EventSearch from './EventSearch';
+import {LocationOn} from '@material-ui/icons';
 
 export default function Events() {
 
@@ -80,7 +81,8 @@ export default function Events() {
                 <h2>{event.date}</h2>
                   <h1>{event.title}</h1>
                   <h3>{event.description}</h3>
-                  <button>Attend event</button>
+                  {/* Address portion */}
+                  <h6><LocationOn fontSize="small"/> {event.address}</h6>
                 </div>
               </div>
             ))}
