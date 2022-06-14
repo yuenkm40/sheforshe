@@ -19,7 +19,7 @@ app.use('/conversations',conversationRoute);
 app.use('/messages',messageRoute);
 app.use('/events', eventRoute);
 
-const CONNECTION_URL = 'mongodb+srv://root:root@cluster0.ewekcjr.mongodb.net/sheforshe?retryWrites=true&w=majority';
+const CONNECTION_URL = 'mongodb+srv://yuenkm40:yuenkm1112@cluster0.ocjtoqj.mongodb.net/?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
