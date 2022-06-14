@@ -1,5 +1,5 @@
 import {
-  Box,
+  Box
 } from '@chakra-ui/react'
 
 import {
@@ -12,7 +12,7 @@ import {
 
 const Map = (props) => {  
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyDIw901ZLp8NA03_BuFZsqy2MVkuXVU_2k",
+    googleMapsApiKey: 'AIzaSyDIw901ZLp8NA03_BuFZsqy2MVkuXVU_2k',
   })
 
   if (!isLoaded) {

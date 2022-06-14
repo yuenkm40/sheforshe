@@ -64,7 +64,7 @@ export default function EventSearch({ initialData, filterSearch }) {
         <FormControl style={{width:150}} variant="outlined" >
           <InputLabel>Event Type</InputLabel>
           <Select value={type} onChange={handleTypeChange}>
-            <MenuItem value={''}>
+            <MenuItem value={'none'}>
               <em>None</em>
             </MenuItem>
             <MenuItem value={'seminar'}>Seminar</MenuItem>
