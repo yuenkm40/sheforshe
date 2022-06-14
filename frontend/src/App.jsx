@@ -13,6 +13,7 @@ import Footer from "./components/intro/Footer"
 import PartnersHome from "./components/partners/PartnersHome"
 import PartnerDetails from "./components/partners/partnerDetails/PartnerDetails"
 import Events from './components/events/Events'
+import EventDetails from './components/events/eventDetails/EventDetails'
 import Login from "./components/registration/Login"
 import Profile from "./components/profile/Profile"
 import Admin from "./components/partners/form/Admin"
@@ -35,6 +36,7 @@ const routes = (
     <Route path="/partners/search" element={<PartnersHome/>} exact/>
     <Route path="/partners/:id" element={<PartnerDetails/>} exact/>
     <Route path="/events" element={<Events/>} exact/>
+    <Route path="/events/:id" element={<EventDetails/>} exact/>
     <Route path="/profile" element={<Profile/>} exact/>
     <Route path="/login" element={<Login/>} exact/>
     <Route path="/admin" element={<Admin/>} exact/>

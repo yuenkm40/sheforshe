@@ -10,7 +10,7 @@ export default function Partners() {
     const classes = useStyles();
     const { partners } = useSelector((state) => state.partners);
     const navigate = useNavigate();
-    console.log(partners);
+    // console.log(partners);
     // if (!partners.length) {
     //   navigate('/partners');
     // }
