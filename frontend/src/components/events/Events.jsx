@@ -54,7 +54,6 @@ export default function Events() {
             <EventSearch initialData={initialData} filterSearch={filteredMapData}/>
           </div>
 
-
           <h4>
             {`${searchResult?.length} Events`}
           </h4>

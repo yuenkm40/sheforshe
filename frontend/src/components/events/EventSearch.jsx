@@ -23,7 +23,7 @@ export default function EventSearch({ initialData, filterSearch }) {
       let filtered = initialData;
       console.log(filtered)
 
-      if (!(type === '')) {
+      if (!(type === '' || type === 'none')) {
           filtered = filtered.filter((element) => element.type === type);
           console.log(filtered);
         }

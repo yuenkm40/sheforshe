@@ -9,7 +9,6 @@ export default function EventsCard({event}) {
   const navigate = useNavigate();
 
   const openevent = () => {
-    console.log(event._id);
     navigate(`/events/${event._id}`);
   };
 

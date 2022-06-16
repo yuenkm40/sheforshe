@@ -11,6 +11,7 @@ import {
 
 
 const Map = (props) => {  
+  {props.children && console.log(props.children.location)}
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: 'AIzaSyDIw901ZLp8NA03_BuFZsqy2MVkuXVU_2k',
   })
@@ -26,16 +27,20 @@ const Map = (props) => {
       <Box position='relative' left={0} top={0} h='100%' w='100%'>
         {/* Google Map Box */}
         <GoogleMap
-          center={{lat:1.290270, lng:103.851959}}
+          center={{lat:1.340270, lng:103.821959}}
           zoom={11}
           mapContainerStyle={{ width: '100%', height: '100%', borderRadius:'10px' }}
         >
-          {props.children.map(marker => (
+          {props.children && Array.isArray(props.children) && props.children.map(marker => (
               <Marker
                 position={{ lat: marker.location.lat, lng: marker.location.lng }}
                 key={marker.id}
               />
           ))}
+          
+          {props.children && !Array.isArray(props.children) && <Marker
+            position={{ lat: props.children.location.lat, lng: props.children.location.lng }}
+          />}
         </GoogleMap>
       </Box>
     </div>

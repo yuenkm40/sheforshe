@@ -53,11 +53,6 @@ export default function Navbar() {
                     Profile
                   </NavLink>
                 </div>
-                <div className="menuItem">
-                  <NavLink to="/admin">
-                    Admin
-                  </NavLink>
-                </div>
             </div>
             ):("")}
         </div>
