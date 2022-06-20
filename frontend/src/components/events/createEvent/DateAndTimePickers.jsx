@@ -21,9 +21,11 @@ export default function DateAndTimePickers() {
     <form className={classes.container} noValidate>
       <TextField
         id="datetime-local"
-        label="Next appointment"
+        label="Event Date"
         type="datetime-local"
         defaultValue="0000-00-24T00:00"
+        //onChange set the date and time accordingly
+        //onChange={(e) => setEventData({ ...eventData, name: e.target.value })}
         className={classes.textField}
         InputLabelProps={{
           shrink: true,
