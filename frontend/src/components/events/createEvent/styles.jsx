@@ -31,4 +31,10 @@ export default makeStyles((theme) => ({
     height:'60%',
    
   },
+  eventDate: {
+    width: 510,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  }
 }));
