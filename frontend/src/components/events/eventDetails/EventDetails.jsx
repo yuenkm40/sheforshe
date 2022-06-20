@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './eventDetails.scss'
 
-import Carousel from 'react-material-ui-carousel'
 import EventDetailsBanner from './EventDetailsBanner';
 import EventCarousel from './EventCarousel';
 import { Rating } from '@mui/material';

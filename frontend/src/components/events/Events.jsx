@@ -1,4 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react'
+import {NavLink} from 'react-router-dom';
 import './events.scss'
 
 import Banner from '../assets/banner.png'
@@ -38,7 +39,12 @@ export default function Events() {
     <div className="top-banner">
       <div className="banner">
       <img src={Banner} alt=""></img>
-        <h1>Attend life changing events. Buy tickets.</h1>
+        <div className="inner-banner">
+          <h1>Attend life changing events.</h1>
+          <button> <NavLink to="/admin">
+                  Create your event!
+              </NavLink></button>
+        </div>
       </div>
     </div>
 
