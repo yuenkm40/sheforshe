@@ -41,7 +41,7 @@ export default function Events() {
       <img src={Banner} alt=""></img>
         <div className="inner-banner">
           <h1>Attend life changing events.</h1>
-          <button> <NavLink to="/admin">
+          <button> <NavLink to="/createEvent">
                   Create your event!
               </NavLink></button>
         </div>
