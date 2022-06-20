@@ -1,0 +1,32 @@
+.admin{
+    display:flex;
+    // align-items:center;
+    // justify-content:center;
+    // width:30%;
+    // margin-left:200px;
+    // margin-top:70px;
+
+    .left{
+   
+        display:flex;
+        flex:0.6;
+        align-items:flex-start;
+        justify-content:flex-start;
+        img{
+            height:92vh;
+            width:100%;
+        }
+    }
+    .right{
+        display:flex;
+        flex:0.4;
+        margin-top:70px;
+        margin-left:50px;
+        margin-right:90px;
+        align-items:flex-start;
+        justify-content:flex-start;
+       
+        
+       
+    }
+}
