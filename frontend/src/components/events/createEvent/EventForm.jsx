@@ -4,15 +4,16 @@ import useStyles from './styles';
 import FileBase from 'react-file-base64';
 import {useNavigate} from 'react-router-dom';
 import DateAndTimePickers from './DateAndTimePickers';
+import getCoordsForAddress from './location';
 
 
 export default function Form( {currentId, setCurrentId}) {
-  const [eventData, setEventData] = useState({  title: '', address: '', description: '', eventType: '',  date: '', selectedFile: '' });
+  const [eventData, setEventData] = useState({  title: '', address: '', description: '', eventType: '',  date: '', selectedFile: '', lat: '', lng: ''});
   const navigate = useNavigate();
   const classes = useStyles();
   const clear = () => {
     // setCurrentId(0);
-    setEventData({  title: '', address: '', description: '', eventType: '',  date: '', selectedFile: '' });
+    setEventData({  title: '', address: '', description: '', eventType: '',  date: '', selectedFile: '', lat: '', lng: '' });
   };
 
   //For setting type
@@ -31,17 +32,30 @@ export default function Form( {currentId, setCurrentId}) {
     const days = ['MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT', 'SUN'];
     const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     
-    const AMPM = currSetDate.getHours() < 12 ? 'AM' : 'PM';
+    const AM_PM = currSetDate.getHours() < 12 ? 'AM' : 'PM';
     //Convert to TUE, JUN 10 2022, 10:00 AM
-    const currDateString = days[currSetDate.getDay()] + ', ' +  months[currSetDate.getMonth()] + ' ' + (currSetDate.getDay() + 1) + ' ' +  currSetDate.getFullYear() + ", " + (currSetDate.getHours() % 13) + ':' + currSetDate.getMinutes() + ' ' + AMPM;
+    const currDateString = days[currSetDate.getDay()] + ', ' +  months[currSetDate.getMonth()] + ' ' + (currSetDate.getDay() + 1) + ' ' +  currSetDate.getFullYear() + ", " + (currSetDate.getHours() % 13) + ':' + currSetDate.getMinutes() + ' ' + AM_PM;
 
     setEventData({ ...eventData, date: currDateString })
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(eventData);
+    //Parse the address into exact coordinates and then save
+    let addressCoord;
+
+    try{
+        addressCoord = await getCoordsForAddress(eventData.address);
+        console.log(addressCoord.lat);
+        console.log(addressCoord.lng);
+        setEventData({ ...eventData, lat: addressCoord.lat })
+        setEventData({ ...eventData, lng: addressCoord.lng })
+    }catch(error){
+        throw error;
+    }
+
     // Axios post request here
+    console.log(eventData);
 
     clear();
     navigate('/events');
@@ -53,7 +67,7 @@ export default function Form( {currentId, setCurrentId}) {
       <h1 style={{fontWeight:500, marginTop:6, fontSize:30,marginBottom:40}}>   {"Create your own event"}</h1>
       <TextField name="title" InputLabelProps={{className: classes.input}} variant="outlined" label="Title" fullWidth value={eventData.title} onChange={(e) => setEventData({ ...eventData, title: e.target.value })} />
 
-      <TextField name="address" InputLabelProps={{className: classes.input}} variant="outlined" label="Address" fullWidth value={eventData.address} onChange={(e) => setEventData({ ...eventData, address: e.target.value.split(',') })} />
+      <TextField name="address" InputLabelProps={{className: classes.input}} variant="outlined" label="Address" fullWidth value={eventData.address} onChange={(e) => setEventData({ ...eventData, address: e.target.value })} />
 
       <TextField name="description" InputLabelProps={{className: classes.input}} variant="outlined" label="Description (no more than 50 words)" fullWidth  multiline rows={4} value={eventData.description} onChange={(e) => setEventData({ ...eventData, description: e.target.value })} />
       
