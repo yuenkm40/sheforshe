@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DateAndTimePickers() {
+export default function DateAndTimePickers({setDate}) {
   const classes = useStyles();
 
   return (
@@ -25,7 +25,7 @@ export default function DateAndTimePickers() {
         type="datetime-local"
         defaultValue="0000-00-24T00:00"
         //onChange set the date and time accordingly
-        //onChange={(e) => setEventData({ ...eventData, name: e.target.value })}
+        onChange={setDate}
         className={classes.textField}
         InputLabelProps={{
           shrink: true,

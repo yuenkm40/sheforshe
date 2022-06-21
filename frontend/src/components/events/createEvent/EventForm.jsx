@@ -24,12 +24,19 @@ export default function Form( {currentId, setCurrentId}) {
   };
 
   //For setting date
-  // const [date, setDate] = useState('');
-  // const handleDateChange = (event) => {
-  //   //Set both type to render as well as for eventData
-  //   setType(event.target.value);
-  //   setEventData({ ...eventData, eventType: event.target.value })
-  // };
+  const handleDateChange = (event) => {
+    //Need to parse the target value to appropriate string format here from ISO date format
+    var currSetDate = new Date(event.target.value);
+
+    const days = ['MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT', 'SUN'];
+    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    
+    const AMPM = currSetDate.getHours() < 12 ? 'AM' : 'PM';
+    //Convert to TUE, JUN 10 2022, 10:00 AM
+    const currDateString = days[currSetDate.getDay()] + ', ' +  months[currSetDate.getMonth()] + ' ' + (currSetDate.getDay() + 1) + ' ' +  currSetDate.getFullYear() + ", " + (currSetDate.getHours() % 13) + ':' + currSetDate.getMinutes() + ' ' + AMPM;
+
+    setEventData({ ...eventData, date: currDateString })
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,7 +67,7 @@ export default function Form( {currentId, setCurrentId}) {
           </Select>
         </FormControl>
 
-        <DateAndTimePickers/>
+        <DateAndTimePickers setDate={handleDateChange}/>
       </div>
 
       <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setEventData({ ...eventData, selectedFile: base64 })} /></div>
