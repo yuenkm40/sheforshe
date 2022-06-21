@@ -14,16 +14,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DateAndTimePickers() {
+export default function DateAndTimePickers({setDate}) {
   const classes = useStyles();
 
   return (
     <form className={classes.container} noValidate>
       <TextField
         id="datetime-local"
-        label="Next appointment"
+        label="Event Date"
         type="datetime-local"
         defaultValue="0000-00-24T00:00"
+        //onChange set the date and time accordingly
+        onChange={setDate}
         className={classes.textField}
         InputLabelProps={{
           shrink: true,
