@@ -1,5 +1,5 @@
 //Location.jsx converts the address into longtitiude and latitude using Google Map Geocoding API
-const axios = require('axios');
+import axios from 'axios';
 
 const API_KEY = 'AIzaSyDIw901ZLp8NA03_BuFZsqy2MVkuXVU_2k';
 

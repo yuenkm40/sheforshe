@@ -6,8 +6,9 @@ import getCoordsForAddress from './location.js';
 
 export const createEvent = async(req,res) => {
 
-    //***NEED TO DO*** destructure all the properties appropriately
+    //Destructure all the properties appropriately
     const {title, description, image, type, address, date, creator} = req.body;
+    console.log(req.body);
 
     //Find first the user for the event
     let user;
@@ -22,7 +23,7 @@ export const createEvent = async(req,res) => {
     try{
         coordinates = await getCoordsForAddress(address);
     }catch(error){
-        return next(error);
+        throw error;
     }
 
     //***NEED TO DO*** create a new event with the appropriate values passed
@@ -34,8 +35,10 @@ export const createEvent = async(req,res) => {
         address,
         date,
         location: coordinates,
-        creator
+        creator: creator.result._id,
     });
+
+    console.log(newEvent);
 
     try{
         //Creation of session to start a transaction following the properties of ACID
