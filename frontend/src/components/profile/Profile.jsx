@@ -1,7 +1,7 @@
 import './profile.scss'
 import Background from '../assets/profileBg.jpeg'
 import Lisa from '../assets/Lisa.jpg'
-import { Stack, Card, Grid, Paper, TextField } from  '@material-ui/core'
+import { Grid, Paper, TextField } from  '@material-ui/core'
 import useStyles from '../registration/styles.jsx'
 export default function Profile() {
   const classes= useStyles();

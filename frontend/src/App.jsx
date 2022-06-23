@@ -5,6 +5,7 @@ import {
   Routes,
   Navigate,
 } from 'react-router-dom'
+import '@stripe/stripe-js'
 
 import Navbar from "./components/navbar/Navbar"
 import Intro from "./components/intro/Intro"
@@ -18,6 +19,10 @@ import Login from "./components/registration/Login"
 import Profile from "./components/profile/Profile"
 import Admin from "./components/partners/form/Admin"
 import Messages from "./components/messages/Messages"
+import About1 from "./components/intro/About1"
+
+import StripeSucess from './components/events/eventDetails/StripeSucess'
+import StripeCancel from './components/events/eventDetails/StripeCancel'
 
 import './app.scss'
 
@@ -29,6 +34,7 @@ const routes = (
       <div className="sections">
         <Intro/>
         <About/>
+        <About1/>
         <Footer/>
     </div>
     } exact/>
@@ -41,6 +47,8 @@ const routes = (
     <Route path="/login" element={<Login/>} exact/>
     <Route path="/admin" element={<Admin/>} exact/>
     <Route path="/messages" element={<Messages/>} exact/>
+    <Route path="/success" element={<StripeSucess/>} exact/>
+    <Route path="/cancel" element={<StripeCancel/>} exact/>
     <Route
         path="*"
         element={<Navigate to="/" replace />}

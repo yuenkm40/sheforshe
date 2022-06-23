@@ -10,11 +10,13 @@
     overflow:hidden;
     display:flex;
     flex-direction:row;
+    justify-content:flex-start;
+    
         img{
             background-size:cover;
-            height:120%;
-            margin-left:120px;
+            height:100%;
             margin-top:20px;
+            margin-left:250px;
         }
         .text{
             display:flex;
