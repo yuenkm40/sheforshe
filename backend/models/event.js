@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const eventSchema = mongoose.Schema(
     {title: { type: String, required: true },
     description: { type: String, required: true },
+    //Img as base 64 string
     image: { type: String, required: true },
     type: { type: String, required: true },
     address: { type: String, required: true },

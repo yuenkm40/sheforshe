@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import User from '../models/user.js';
 
 export const signin = async(req, res) => {
-    const { email,password } = req.body;
+    const { email ,password } = req.body;
     try{
         const existingUser = await User.findOne({email});
         if (!existingUser) return res.status(404).json({ message: "User does not exist."});

@@ -32,20 +32,42 @@
             background-image: url("../assets/background.jpg");
           
             // background-size:1350px 500px;
+            .inner-banner{
 
-            h1{
-                text-align:left;
-                font-size:40px;
-                margin-top:55px;
-                margin-left:100px;
-                width:40%;
-                color:rgb(57, 134, 160);
-              
-                // overflow:hidden;
-                z-index:999;
-                position:relative;
+                h1{
+                    text-align:left;
+                    font-size:40px;
+                    margin-top:55px;
+                    width:100%;
+                    color:rgb(57, 134, 160);
+                    // overflow:hidden;
+                    z-index:999;
+                    position:relative;
+                }
+                
+
+                button {
+                    text-decoration:none;
+                    border-color: rgb(57, 134, 160);
+                    font-size:15px;
+                    font-weight:600;
+                    border-radius:15px;
+                    margin-top: 10px;
+                    height: 50px;
+                    width:200px;
+                    cursor:pointer;
+                    color:rgb(57, 134, 160);
+                    background-color:transparent;
+                    overflow:hidden;
+                    a{
+                        color:rgb(57, 134, 160);
+                    }
+                    a:link{
+                        text-decoration:none;
+                        color:rgb(57, 134, 160);
+                    }
+                }
             }
-            
         }
     }
     .bottom{
