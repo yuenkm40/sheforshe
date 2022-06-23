@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './eventDetails.scss'
+import './EventDetails.scss'
 
 import EventDetailsBanner from './EventDetailsBanner';
 import EventCarousel from './EventCarousel';
@@ -8,11 +8,47 @@ import { Rating } from '@mui/material';
 import { Typography, Divider, Button } from '@material-ui/core';
 import { WbSunny } from '@material-ui/icons';
 import Map from '../../map/Map'
+import {loadStripe} from '@stripe/stripe-js'
+
+let stripePromise;
+const getStripe = () => {
+    if (!stripePromise) {
+        stripePromise = loadStripe("pk_test_51LDfPHD9ajsPR22OgcpJizuA1tqOF04Mn5YnOXtfxm9e6rsysyZU4pGEidM0OrzVbzjOVyG6d5P7ayaIlkUzw0Zm00sS4xMcDE");
+    }
+    return stripePromise;
+}
+
 
 
 function EventDetails() {
     const[eventDetail, setEventDetail] = useState();
     const { id } = useParams();
+    const [stripeError,setStripeError] = useState(null);
+    const [isLoading,setLoading] = useState(false);
+    const item = {
+        price: "price_1LDfWAD9ajsPR22Ox8ru32ev",
+        quantity:1
+    };
+    const checkoutOptions = {
+        lineItems: [item],
+        mode: "payment",
+        successUrl: `${window.location.origin}/success`,
+        cancelUrl:`${window.location.origin}/cancel`
+    };
+    const redirectToCheckout = async () => {
+        setLoading(true);
+        console.log("redirectToCheckout");
+
+        const stripe = await getStripe();
+        const {error} = await stripe.redirectToCheckout(checkoutOptions);
+        console.log("Stripe checkout error", error);
+
+        if (error) {
+            setStripeError(error.message);
+        }
+        setLoading(false);
+    }
+    if (stripeError) alert(stripeError);
 
     //Load event data
     useEffect(() => {
@@ -46,7 +82,7 @@ function EventDetails() {
                             <strong>{eventDetail?.title}</strong>
                         </Typography>
                         <div className='caption'>
-                            <strong>$22</strong>
+                            <strong>$5</strong>
                             {/* Interpunct */}
                             <span>&#183;</span>
                             <Typography variant="subtitle" >{eventDetail?.type}</Typography>
@@ -111,8 +147,11 @@ function EventDetails() {
                                 </div>
                             </div>
                         <Divider style={{ margin: '25px 0' }} />
-                        <Button type="submit" fullWidth variant="contained" style={{borderRadius:15, color:'white', backgroundColor:'rgb(' + 221 + ',' + 132 + ',' + 132 + ')'}}>
-                            Proceed to booking
+                        <Button type="submit" fullWidth variant="contained" style={{borderRadius:15, color:'white', backgroundColor:'rgb(' + 221 + ',' + 132 + ',' + 132 + ')'}} 
+                            onClick={redirectToCheckout}
+                            disabled={isLoading}
+                        >
+                            {isLoading? "Loading...":"Register for event"}
                         </Button>
                     </div> 
                 </div>
