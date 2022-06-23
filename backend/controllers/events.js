@@ -2,10 +2,12 @@ import express from 'express';
 import mongoose from 'mongoose';
 import Event from '../models/event.js';
 import User from '../models/user.js';
+import getCoordsForAddress from './location.js';
 
 export const createEvent = async(req,res) => {
 
-    const userId = req.body.creator;
+    //***NEED TO DO*** destructure all the properties appropriately
+    const {title, description, image, type, address, date, creator} = req.body;
 
     //Find first the user for the event
     let user;
@@ -15,7 +17,25 @@ export const createEvent = async(req,res) => {
         res.status(404).json({message: error.message});
     }
 
-    const newEvent = new Event(req.body);
+    // Convert address to lat long
+    let coordinates;
+    try{
+        coordinates = await getCoordsForAddress(address);
+    }catch(error){
+        return next(error);
+    }
+
+    //***NEED TO DO*** create a new event with the appropriate values passed
+    const newEvent = new Event({
+        title,
+        description,
+        image,
+        type,
+        address,
+        date,
+        location: coordinates,
+        creator
+    });
 
     try{
         //Creation of session to start a transaction following the properties of ACID

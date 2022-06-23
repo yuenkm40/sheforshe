@@ -4,16 +4,15 @@ import useStyles from './styles';
 import FileBase from 'react-file-base64';
 import {useNavigate} from 'react-router-dom';
 import DateAndTimePickers from './DateAndTimePickers';
-import getCoordsForAddress from './location';
 
 
 export default function Form( {currentId, setCurrentId}) {
-  const [eventData, setEventData] = useState({  title: '', address: '', description: '', eventType: '',  date: '', selectedFile: '', lat: '', lng: ''});
+  const [eventData, setEventData] = useState({  title: '', address: '', description: '', eventType: '',  date: '', selectedFile: '', creatorId: JSON.parse(localStorage.getItem('profile'))});
   const navigate = useNavigate();
   const classes = useStyles();
   const clear = () => {
     // setCurrentId(0);
-    setEventData({  title: '', address: '', description: '', eventType: '',  date: '', selectedFile: '', lat: '', lng: '' });
+    setEventData({  title: '', address: '', description: '', eventType: '',  date: '', selectedFile: '', creatorId: JSON.parse(localStorage.getItem('profile'))});
   };
 
   //For setting type
@@ -41,20 +40,34 @@ export default function Form( {currentId, setCurrentId}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //Parse the address into exact coordinates and then save
-    let addressCoord;
-
-    try{
-        addressCoord = await getCoordsForAddress(eventData.address);
-        console.log(addressCoord.lat);
-        console.log(addressCoord.lng);
-        setEventData({ ...eventData, lat: addressCoord.lat })
-        setEventData({ ...eventData, lng: addressCoord.lng })
-    }catch(error){
-        throw error;
+   
+    // Post request here
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        title: eventData.title,
+        description: eventData.description,
+        image: eventData.image,
+        type: eventData.type,
+        address: eventData.address,
+        date: eventData.date,
+        creator: eventData.creatorId,
+      })
     }
 
-    // Axios post request here
+    try{
+      //**Convert sendRequest to a fetch statement */
+      const response = await fetch('http://localhost:5000/events', requestOptions);
+
+        if (!response.ok) {
+          throw new Error("Unable to create a new event");
+        }
+
+    }catch(err){
+      throw new Error("Unable to create a new event.");
+    }
+
     console.log(eventData);
 
     clear();
