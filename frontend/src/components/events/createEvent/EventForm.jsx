@@ -65,6 +65,7 @@ export default function Form( {currentId, setCurrentId}) {
         }
 
     }catch(err){
+      console.log(err);
       throw new Error("Unable to create a new event.");
     }
 
