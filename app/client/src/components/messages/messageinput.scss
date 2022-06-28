@@ -1,0 +1,67 @@
+.messageInput{
+    margin-top:30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    overflow:hidden;
+    .button-container {
+        display:flex;
+        align-items:center;
+        flex-direction:column;
+
+       .emoji{
+           position:relative;
+           svg{
+               font-size:1.5rem;
+               color:rgb(192, 192, 177);
+               cursor:pointer;
+           }
+          
+       }
+       .emoji-picker-react{
+        position:absolute;bottom:180px; 
+        z-index:999;
+        size:20px;
+         border-color: #e68cc0;
+         .emoji-scroll-wrapper::-webkit-scrollbar {
+         width: 5px;
+         &-thumb {
+             background-color: #e68cc0;
+         }
+         }
+         .emoji-categories {
+         button {
+             filter: contrast(0);
+         }
+         }
+         .emoji-search {
+         background-color: transparent;
+         border-color: #9a86f3;
+         }
+      
+    }
+    }
+    .chatMessageInput{
+        display:flex;
+        align-items:center;
+        width:80%;
+        padding:10px;
+        background-color:transparent;
+        border-radius:2rem;
+        
+    }
+    .chatSubmitButton{
+        width:50px;
+        height:40px;
+        border-radius:5px;
+        border:none;
+        cursor:pointer;
+        background-color:teal;
+        color:white;
+        border-radius:2rem;
+        align-items:center;
+        svg{
+            font-size:1.2rem;
+        }
+    }
+}

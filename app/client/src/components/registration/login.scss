@@ -1,0 +1,27 @@
+.login{
+    background-color:rgb(247, 197, 205);
+    height:calc(100vh - 60px);
+    display:flex;
+    flex-direction:row;
+    .left{
+        display:flex;
+        flex:0.5;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        h1{
+            width:50%;
+            color:white;
+            text-align:center;
+            margin-top:40px;
+        }
+        img{
+            height:75%;
+        }
+    }
+    .right{
+        display:flex;
+        flex:0.5;
+        background-color:rgb(247, 197, 205);
+    }
+}

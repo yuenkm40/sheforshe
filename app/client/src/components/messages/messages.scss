@@ -1,0 +1,53 @@
+.messages{
+    height: calc(100vh - 120px);
+    display:flex;
+    overflow:hidden;
+    padding:30px 100px;
+
+    .chatMenu{
+        flex:0.4;
+        .chatMenuWrapper{
+            padding: 10px;
+         
+           overflow:hidden;
+           .chatMenuInput{
+               width:90%;
+               padding:10px 0;
+               border:none;
+               border-bottom:1px solid grey;
+           }
+        }
+    }
+    .chatBox{
+        flex:0.6;
+        .chatBoxWrapper{
+            padding:10px;
+            height:96%;
+            overflow:hidden;
+            display:flex;
+            flex-direction:column;
+            .chatBoxTop{
+                height:60vh;
+                overflow-y:scroll;
+                padding-right:30px;
+                scroll-behavior:smooth;
+                scrollbar-width:none;
+                &::-webkit-scrollbar{
+                    display:none; //hiding scrollbar at right hand side 
+                }
+            }
+            .welcome{
+                display:flex;
+                align-items:center;
+                flex-direction:column;
+                img{
+                    height:70%;
+                }
+                h3{
+                    color:grey;
+                }
+            }
+      
+        }
+    }
+}

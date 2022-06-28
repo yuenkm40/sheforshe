@@ -1,0 +1,43 @@
+ .event{
+                height:180px;width:560px;
+                // background-color:white;
+                border-radius:15px;
+                box-shadow: 1px 1px 15px -8px #888888;
+                margin:10px 20px;
+                display:flex;
+                overflow:hidden;
+                cursor:pointer;
+                
+                .text{
+                    display:flex;
+                    flex-direction:column;
+                    align-items:flex-start;
+                    justify-content:flex-start;
+                    margin:1rem 1rem;
+                    width:52%;
+                    h1{
+                        text-align:left;
+                        font-size:20px;
+                        margin:8px 0px;
+                        font-weight:500;
+                    }
+                    h2{
+                        font-size:14px;
+                        font-weight:500;
+                        color:grey;
+                    }
+
+                    h3{
+                        font-size:12px;
+                        font-weight:300;
+                        overflow:hidden;
+                        
+                    }
+
+                    h6{
+                        margin-top: 10px;
+                        color:grey;
+                    }
+                }
+                
+            }
