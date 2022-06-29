@@ -48,10 +48,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
-
 const CONNECTION_URL = 'mongodb+srv://yuenkm40:yuenkm1112@cluster0.ocjtoqj.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(port, () => console.log(`Server Running on Port: http://localhost:${port}`)))
   .catch((error) => console.log(`${error} did not connect`));
+
+
