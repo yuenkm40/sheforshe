@@ -19,7 +19,6 @@ import Login from "./components/registration/Login"
 import Profile from "./components/profile/Profile"
 import Admin from "./components/partners/form/Admin"
 import Messages from "./components/messages/Messages"
-import About1 from "./components/intro/About1"
 
 import StripeSucess from './components/events/eventDetails/StripeSucess'
 import StripeCancel from './components/events/eventDetails/StripeCancel'
@@ -35,7 +34,6 @@ const routes = (
       <div className="sections">
         <Intro/>
         <About/>
-        <About1/>
         <Footer/>
     </div>
     } exact/>
