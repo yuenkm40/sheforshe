@@ -48,7 +48,7 @@ export default function Form( {currentId, setCurrentId}) {
       body: JSON.stringify({
         title: eventData.title,
         description: eventData.description,
-        image: eventData.image,
+        image: eventData.selectedFile,
         type: eventData.type,
         address: eventData.address,
         date: eventData.date,
