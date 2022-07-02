@@ -49,7 +49,7 @@ export default function Form( {currentId, setCurrentId}) {
         title: eventData.title,
         description: eventData.description,
         image: eventData.selectedFile,
-        type: eventData.type,
+        type: eventData.eventType,
         address: eventData.address,
         date: eventData.date,
         creator: eventData.creatorId,
