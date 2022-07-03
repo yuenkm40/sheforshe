@@ -14,7 +14,7 @@ export default function EventsCard({event}) {
 
   return (
     <div className="event" onClick={openevent}>
-        <img src={Connect} alt=""></img>
+        <img src={event.image} alt=""></img>
         <div className="text">
         <h2>{event.date}</h2>
             <h1>{event.title}</h1>
