@@ -38,7 +38,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ## Deployment of application 
 This application is deployed using a Linode server.
 
-###Node.js setup
+### Node.js setup
 Install Node.js with curl using the following commands. Note that at the time which the app was built the node version is 16.3.2 and npm version is 8.1.2.
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
@@ -63,7 +63,7 @@ cd app
 npm run prod
 ```
 
-##PM2 Setup
+## PM2 Setup
 PM2 is a production process manager from Node.js. It allows us to keep Node apps running without having to have terminal open with npm start, etc like we do for development.
 
 First install PM2 globally with NPM
@@ -75,7 +75,7 @@ Run with PM2
 pm2 start app/server.js
 ```
 
-##Firewall setup
+## Firewall setup
 Setup a firewall so that people can not directly access any port except ports for ssh, http and https.
 
 ```bash
@@ -85,7 +85,7 @@ sudo ufw allow http (Port 80)
 sudo ufw allow https (Port 443)
 ```
 
-##Nginx Setup
+## Nginx Setup
 Nginx, stylized as NGIИX, is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache.
 
 Install nginx on server.
