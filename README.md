@@ -28,8 +28,8 @@ This repo contains the following components:
 | Component              | Folder            | Description                                                                                               |
 | ---------------------- | ----------------- | --------------------------------------------------------------------------------------------------------- |
 | Front-end              | /app/client       | React front-end to display the webpage to users                                                           |
-| Back-end               | /app              | ExpressJS back-end supported by MongoDB database                                                         |
-| Chat service           | /socket           | Chat service implemented using Socket.io to allow for bidirectional and low-latency communication.        |
+| Back-end               | /app              | ExpressJS back-end supported by MongoDB database                                                          |
+| Live instant messaging | /socket           | Live instant messaging implemented with Socket.io allowing for bidirectional, low-latency communication.  |
 
 ## Running the application 
 Runs the app in the development mode.\
