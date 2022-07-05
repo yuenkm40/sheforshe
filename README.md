@@ -49,13 +49,14 @@ node --version
 npm --version
 ```
 
-## Get the files on the server
+### Get the files on the server
 Go to an empty directory in the server and clone the application.
 ```bash
 git clone https://github.com/yuenkm40/sheforshe.git
 ```
 
-## App setup and running the app
+### App setup and running the app
+To run the application on the server.
 ```bash
 cd app
 
@@ -63,7 +64,7 @@ cd app
 npm run prod
 ```
 
-## PM2 Setup
+### PM2 Setup
 PM2 is a production process manager from Node.js. It allows us to keep Node apps running without having to have terminal open with npm start, etc like we do for development.
 
 First install PM2 globally with NPM
@@ -75,7 +76,7 @@ Run with PM2
 pm2 start app/server.js
 ```
 
-## Firewall setup
+### Firewall setup
 Setup a firewall so that people can not directly access any port except ports for ssh, http and https.
 
 ```bash
@@ -85,7 +86,7 @@ sudo ufw allow http (Port 80)
 sudo ufw allow https (Port 443)
 ```
 
-## Nginx Setup
+### Nginx Setup
 Nginx, stylized as NGIИX, is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache.
 
 Install nginx on server.
