@@ -1,5 +1,4 @@
 import React from 'react'
-import Connect from '../assets/connect.jpg'
 import {useNavigate} from 'react-router-dom';
 import {LocationOn} from '@material-ui/icons';
 

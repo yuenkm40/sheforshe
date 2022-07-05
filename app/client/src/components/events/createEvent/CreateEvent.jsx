@@ -1,13 +1,14 @@
 import EventForm from './EventForm'
 import './createEvent.scss'
-import Empowerment from '../../assets/mentor.jpg';
+import Event from '../../assets/connect.jpg';
 
 export default function CreateEvent() {
 
   return (
     <div className="admin">
       <div className="left">
-      <img src={Empowerment} alt=""></img>
+      <h1>Share inspiring stories with hundreds of other women entrepreneurs.</h1>
+      <img src={Event} alt=""></img>
       
       </div>
       <div className="right">

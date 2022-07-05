@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './EventDetails.scss'
+import './EventDetails.scss';
+import emailjs from 'emailjs-com';
 
 import EventDetailsBanner from './EventDetailsBanner';
 import EventCarousel from './EventCarousel';
@@ -11,6 +12,7 @@ import Map from '../../map/Map'
 import {loadStripe} from '@stripe/stripe-js'
 
 let stripePromise;
+
 const getStripe = () => {
     if (!stripePromise) {
         stripePromise = loadStripe("pk_test_51LDfPHD9ajsPR22OgcpJizuA1tqOF04Mn5YnOXtfxm9e6rsysyZU4pGEidM0OrzVbzjOVyG6d5P7ayaIlkUzw0Zm00sS4xMcDE");
@@ -20,8 +22,10 @@ const getStripe = () => {
 
 
 
+
 function EventDetails() {
     const[eventDetail, setEventDetail] = useState();
+   
     const { id } = useParams();
     const [stripeError,setStripeError] = useState(null);
     const [isLoading,setLoading] = useState(false);
@@ -35,6 +39,7 @@ function EventDetails() {
         successUrl: `${window.location.origin}/success`,
         cancelUrl:`${window.location.origin}/cancel`
     };
+
     const redirectToCheckout = async () => {
         setLoading(true);
         console.log("redirectToCheckout");
@@ -49,7 +54,19 @@ function EventDetails() {
         setLoading(false);
     }
     if (stripeError) alert(stripeError);
-
+    const sendEmail = (e) => {
+        // e.preventDefault();
+        var templateParams = {
+            event_name: eventDetail.title,
+            Address:eventDetail.address,
+        };
+        emailjs.send('sheforshe_emailer', 'template_47be9l2',templateParams,'ib71AEjo8-tLWEakh')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+    }
     //Load event data
     useEffect(() => {
         const sendRequest = async () => {
@@ -78,7 +95,7 @@ function EventDetails() {
                 </div>
                 <div className="description">
                     <div className="descriptionWrap">
-                        <Typography variant="h4" component="p" style={{marginTop:15}}>
+                        <Typography variant="h4" component="p" style={{marginTop:15}} >
                             <strong>{eventDetail?.title}</strong>
                         </Typography>
                         <div className='caption'>
@@ -148,7 +165,7 @@ function EventDetails() {
                             </div>
                         <Divider style={{ margin: '25px 0' }} />
                         <Button type="submit" fullWidth variant="contained" style={{borderRadius:15, color:'white', backgroundColor:'rgb(' + 221 + ',' + 132 + ',' + 132 + ')'}} 
-                            onClick={redirectToCheckout}
+                            onClick={() => {sendEmail();redirectToCheckout();}}
                             disabled={isLoading}
                         >
                             {isLoading? "Loading...":"Register for event"}

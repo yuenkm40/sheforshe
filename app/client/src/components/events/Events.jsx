@@ -42,7 +42,7 @@ export default function Events() {
         <div className="inner-banner">
           <h1>Attend life changing events.</h1>
           <button> <NavLink to="/createEvent">
-                  Create your event!
+                  Organize an event
               </NavLink></button>
         </div>
       </div>

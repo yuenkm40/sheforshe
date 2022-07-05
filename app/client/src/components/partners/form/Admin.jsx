@@ -8,6 +8,7 @@ export default function Admin() {
   return (
     <div className="admin">
       <div className="left">
+      <h1>Find other like-minded inspiring women to start your business.</h1>
       <img src={Empowerment} alt=""></img>
       
       </div>
