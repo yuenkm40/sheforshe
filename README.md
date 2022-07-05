@@ -111,6 +111,6 @@ location / {
 
 ## Technology Stack
 
-SheforShe is a MERN stack application built using React, Redux, Node.js, Express.js, MongoDB and will be hosted on the Google Cloud Platform. 
+SheforShe is a MERN stack application built using React, Redux, Node.js, Express.js, MongoDB and is hosted on a remote server using Linode.
 
 
