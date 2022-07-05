@@ -1,7 +1,7 @@
 //Location.jsx converts the address into longtitiude and latitude using Google Map Geocoding API
 import axios from 'axios';
 
-const API_KEY = 'AIzaSyDIw901ZLp8NA03_BuFZsqy2MVkuXVU_2k';
+const API_KEY = MAPS_API_KEY;
 
 async function getCoordsForAddress(address) {
       const response = await axios.get(
