@@ -93,7 +93,7 @@ Install nginx on server.
 ```bash
 sudo apt install nginx
 ```
-Configure a proxy for our MERN app by opening config file.
+Configure a proxy for our MERN app by changing config file.
 ```bash
 sudo nano /etc/nginx/sites-available/default
 ```
