@@ -13,7 +13,7 @@ import {
 const Map = (props) => {  
   {props.children && console.log(props.children.location)}
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyDIw901ZLp8NA03_BuFZsqy2MVkuXVU_2k',
+    googleMapsApiKey: MAPS_API_KEY,
   })
 
   if (!isLoaded) {
