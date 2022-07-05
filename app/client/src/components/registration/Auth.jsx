@@ -16,7 +16,7 @@ export default function Auth() {
   useEffect(() => {
     function start() {
     gapi.client.init({
-    clientId:"285319930983-t5okhntrkvimjfbhhhelucitfn7l3j1n.apps.googleusercontent.com",
+    clientId:GOOGLE_CLIENT_ID,
     scope: 'email',
       });
        }
@@ -87,7 +87,7 @@ export default function Auth() {
             {isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password"/>}
           </Grid>
 
-          <GoogleLogin clientId="285319930983-t5okhntrkvimjfbhhhelucitfn7l3j1n.apps.googleusercontent.com" render={(renderProps) => (
+          <GoogleLogin clientId=GOOGLE_CLIENT_ID render={(renderProps) => (
             <Button className={classes.googleButton} color='primary' fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon/>} variant="contained">Google Sign In</Button>)}
               onSuccess={googleSuccess}
               onFailure={googleFailure}
