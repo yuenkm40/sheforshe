@@ -49,7 +49,7 @@ node --version
 npm --version
 ```
 
-### Get the files on the server
+### Download files to server
 Go to an empty directory in the server and clone the application.
 ```bash
 git clone https://github.com/yuenkm40/sheforshe.git
