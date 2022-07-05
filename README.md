@@ -56,7 +56,7 @@ git clone https://github.com/yuenkm40/sheforshe.git
 ```
 
 ### App setup and running the app
-To run the application on the server.
+Download dependencies, create built file and run the application on the server.
 ```bash
 cd app
 
