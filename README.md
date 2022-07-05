@@ -28,7 +28,7 @@ This repo contains the following components:
 | Component              | Folder            | Description                                                                                               |
 | ---------------------- | ----------------- | --------------------------------------------------------------------------------------------------------- |
 | Front-end              | /app/client       | React front-end to display the webpage to users                                                           |
-| Back-end               | /app              | ExpressJS back-end supported by SQLite database                                                           |
+| Back-end               | /app              | ExpressJS back-end supported by MongoDB database                                                         |
 | Chat service           | /socket           | Chat service implemented using Socket.io to allow for bidirectional and low-latency communication.        |
 
 ## Running the application 
@@ -39,7 +39,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 This application is deployed using a Linode server.
 
 ### Node.js setup
-Install Node.js with curl using the following commands. Note that at the time which the app was built the node version is 16.3.2 and npm version is 8.1.2.
+Install Node.js with curl using the following commands. Note that at the time which the app was built the node version is **v16.3.2** and npm version is **v8.1.2**.
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
