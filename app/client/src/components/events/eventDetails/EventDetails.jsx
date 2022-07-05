@@ -60,7 +60,7 @@ function EventDetails() {
             event_name: eventDetail.title,
             Address:eventDetail.address,
         };
-        emailjs.send('sheforshe_emailer', 'template_47be9l2',templateParams,'ib71AEjo8-tLWEakh')
+        emailjs.send('sheforshe_emailer', 'template_47be9l2',templateParams,EMAILJS_API_KEY)
           .then((result) => {
               console.log(result.text);
           }, (error) => {
