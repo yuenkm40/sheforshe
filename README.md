@@ -39,7 +39,7 @@ Open [http://localhost:5000](http://localhost:5000) to view it in your browser.
 This application is deployed using a Linode server.
 
 ### Node.js setup
-Install Node.js with curl using the following commands. Note that at the time which the app was built the node version is **v16.3.2** and npm version is **v8.1.2**.
+Install Node.js with curl using the following commands. Note that at the time which the app was built, the node version is **v16.3.2** and npm version is **v8.1.2**.
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
@@ -56,7 +56,7 @@ git clone https://github.com/yuenkm40/sheforshe.git
 ```
 
 ### App setup and running the app
-Download dependencies, create built file and run the application on the server.
+Download dependencies, create build file and run the application on the server.
 ```bash
 cd app
 
@@ -65,7 +65,7 @@ npm run prod
 ```
 
 ### PM2 Setup
-PM2 is a production process manager from Node.js. It allows us to keep Node apps running without having to have terminal open with npm start, etc like we do for development.
+PM2 is a production process manager from Node.js. It allows us to keep Node apps running without having to have terminal open with npm start, etc.
 
 First install PM2 globally with NPM
 ```bash
